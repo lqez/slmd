@@ -11,6 +11,6 @@ setup(
     maintainer='Park Hyunwoo',
     maintainer_email='ez.amiryo' '@' 'gmail.com',
     url='http://github.com/lqez/mdls',
-    description='Lazy man\'s Flask Application',
+    description='Markdown list sorter',
     test_suite='mdls.test',
 )
