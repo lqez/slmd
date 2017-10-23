@@ -26,13 +26,13 @@ def sort_bucket(bucket, sort_by=None, depth=0):
     if sort_by:
         try:
             order = sort_by[depth]
-        except ValueError:
+        except IndexError:
             order = 0
 
     if order == 1:
         bucket.sort()
     elif order == -1:
-        bucket.sort(reversed=True)
+        bucket.sort(reverse=True)
 
     for item, child in bucket:
         if child:
