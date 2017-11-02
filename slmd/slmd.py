@@ -1,9 +1,9 @@
 # -*- coding: utf-8 -*-
 """
-mdls
+slmd
 ~~~~
 
-A humble Markdown list sorter.
+Sort lists in Markdown
 
 :copyright: (c) 2017 by Park Hyunwoo.
 :license: MIT, see LICENSE for more details.

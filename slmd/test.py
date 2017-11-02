@@ -1,5 +1,5 @@
 import unittest
-from mdls import sort_string
+from slmd import sort_string
 
 
 class TestSort(unittest.TestCase):

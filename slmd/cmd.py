@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 import sys
 import argparse
-from mdls import sort_string
+from slmd import sort_string
 
 
 def get_parser():
-    parser = argparse.ArgumentParser(description='Markdown list sorter')
+    parser = argparse.ArgumentParser(description='Sort lists in Markdown')
 
     parser.add_argument('infile', type=argparse.FileType('r'),
                         default=sys.stdin)

@@ -1,29 +1,38 @@
-## mdls
-[![Build Status](https://travis-ci.org/lqez/mdls.svg?branch=master)](https://travis-ci.org/lqez/mdls)
-[![codecov](https://codecov.io/gh/lqez/mdls/branch/master/graph/badge.svg)](https://codecov.io/gh/lqez/mdls)
+## slmd
+[![Build Status](https://travis-ci.org/lqez/slmd.svg?branch=master)](https://travis-ci.org/lqez/slmd)
+[![codecov](https://codecov.io/gh/lqez/slmd/branch/master/graph/badge.svg)](https://codecov.io/gh/lqez/slmd)
 
-Markdown list sorter
+Sort lists in Markdown
 
 ### Installation
 
 ```
-$ pip install mdls
+$ pip install slmd
 ```
 
 ### Usage
 
 ```
-$ mdls <infile> [outfile] [-s ORDER_BY ...]
+$ slmd <infile> [outfile] [-s ORDER_BY ...]
 
 - If you want to sort only the first depth by ascending order,
-$ mdls some.md -s 1
+$ slmd some.md -s 1
 
 - If you want to sort only the second depth by descending order,
-$ mdls some.md -s 0 -1
+$ slmd some.md -s 0 -1
 
 - Save the result as a file
-$ mdls src.md out.md
+$ slmd src.md out.md
 ```
+
+or use it in Python code
+
+```
+from slmd import sort_string
+
+result = sort_string(some_markdown_string)
+```
+
 
 ### Exit code
 

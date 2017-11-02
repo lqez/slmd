@@ -3,7 +3,7 @@ from setuptools import setup
 from setuptools import find_packages
 import re
 
-with open('mdls/__init__.py') as f:
+with open('slmd/__init__.py') as f:
     data = re.search(r'\(\s*(\d*).\s*(\d*).\s*(\d)*\)', f.read())
     version = ".".join([data.group(1), data.group(2), data.group(3)])
 assert version
@@ -24,7 +24,7 @@ classifiers = [
 ]
 
 setup(
-    name='mdls',
+    name='slmd',
     version=version,
     packages=find_packages(),
     zip_safe=True,
@@ -32,13 +32,13 @@ setup(
     author_email='ez.amiryo' '@' 'gmail.com',
     maintainer='Park Hyunwoo',
     maintainer_email='ez.amiryo' '@' 'gmail.com',
-    url='http://github.com/lqez/mdls',
+    url='http://github.com/lqez/slmd',
     description='Markdown list sorter',
     classifiers=classifiers,
-    test_suite='mdls.test',
+    test_suite='slmd.test',
     entry_points={
         'console_scripts': [
-            'mdls = mdls.cmd:main',
+            'slmd = slmd.cmd:main',
         ],
     },
 )
