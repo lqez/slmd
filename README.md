@@ -4,6 +4,31 @@
 
 Sort lists in Markdown
 
+### WHAT
+
+Yes, it simply sorts 
+
+```
+- This
+    - Gonna
+    - Be
+- Like
+    - That
+```
+
+into
+
+```
+- Like
+    - That
+- This
+    - Be
+    - Gonna
+```
+
+P R O F I T .
+
+
 ### Installation
 
 ```
