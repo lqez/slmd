@@ -7,8 +7,10 @@ from mdls import sort_string
 def get_parser():
     parser = argparse.ArgumentParser(description='Markdown list sorter')
 
-    parser.add_argument('infile', type=argparse.FileType('r'), default=sys.stdin)
-    parser.add_argument('outfile', type=argparse.FileType('w'), default=sys.stdout)
+    parser.add_argument('infile', type=argparse.FileType('r'),
+                        default=sys.stdin)
+    parser.add_argument('outfile', type=argparse.FileType('w'), nargs='?',
+                        default=sys.stdout)
     parser.add_argument('-s', type=int, dest='sort_by', nargs='*',
                         help='Set order by depth (1:ASC / -1:DESC / 0:Do not sort)')
 
