@@ -15,14 +15,17 @@ $ pip install slmd
 ```
 $ slmd <infile> [outfile] [-s ORDER_BY ...]
 
+- Simply
+$ slmd some.md
+
+- Save the result as a file
+$ slmd src.md out.md
+
 - If you want to sort only the first depth by ascending order,
 $ slmd some.md -s 1
 
 - If you want to sort only the second depth by descending order,
 $ slmd some.md -s 0 -1
-
-- Save the result as a file
-$ slmd src.md out.md
 ```
 
 or use it in Python code
