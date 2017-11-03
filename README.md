@@ -51,6 +51,12 @@ $ slmd some.md -s 1
 
 - If you want to sort only the second depth by descending order,
 $ slmd some.md -s 0 -1
+
+- Sort lists inplace(overwrite)
+$ slmd somd.md -o
+
+- Do you need help?
+$ slmd -h
 ```
 
 or use it in Python code

@@ -11,6 +11,8 @@ def get_parser():
                         default=sys.stdin)
     parser.add_argument('outfile', type=argparse.FileType('w'), nargs='?',
                         default=sys.stdout)
+    parser.add_argument('-o', dest='overwrite', action='store_true', default=False,
+                        help='Overwrite the result itself')
     parser.add_argument('-s', type=int, dest='sort_by', nargs='*',
                         help='Set order by depth (1:ASC / -1:DESC / 0:Do not sort)')
 
@@ -23,7 +25,12 @@ def main():
     source = args.infile.read()
     result = sort_string(source, args.sort_by)
 
-    args.outfile.write(result)
+    if args.overwrite:
+        args.infile.close()
+        with open(args.infile.name, 'w', encoding=args.infile.encoding) as f:
+            f.write(result)
+    else:
+        args.outfile.write(result)
 
     sys.exit(0 if (source == result) else 1)
 
