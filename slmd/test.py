@@ -2,7 +2,7 @@ import os
 import sys
 import unittest
 from slmd import sort_string
-from slmd.cmd import main
+from .cmd import main
 
 
 class TestSort(unittest.TestCase):
