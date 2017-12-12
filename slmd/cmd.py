@@ -19,7 +19,7 @@ def get_parser():
     return parser
 
 
-def main(args):
+def main(args=sys.argv[1:]):
     args = get_parser().parse_args(args)
 
     source = args.infile.read()
@@ -36,4 +36,4 @@ def main(args):
 
 
 if __name__ == '__main__':
-    sys.exit(main(sys.argv[1:]))
+    sys.exit(main())

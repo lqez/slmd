@@ -1,3 +1,6 @@
+## 0.1.3
+ - Bug hotfix
+
 ## 0.1.2
  - Add an option for overwrite
 
