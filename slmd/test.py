@@ -1,5 +1,8 @@
+import os
+import sys
 import unittest
 from slmd import sort_string
+from slmd.cmd import main
 
 
 class TestSort(unittest.TestCase):
@@ -123,6 +126,27 @@ normal text
 * 1
 """
         self.assertEqual(sort_string(asis, [0, 0, 1]), tobe)
+
+
+class TestCmd(unittest.TestCase):
+    def setUp(self):
+        self.sample = 'fixtures/source.md'
+
+        # Do not print out anything
+        f = open(os.devnull, 'w')
+        sys.stdout = f
+        sys.stderr = f
+
+    def test_run(self):
+        try:
+            main([])
+        except SystemExit:
+            pass
+
+    def test_simple(self):
+        argv = '{}'.format(self.sample)
+        main(argv.split(' '))
+
 
 if __name__ == '__main__':
     unittest.main()

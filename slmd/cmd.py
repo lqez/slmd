@@ -19,8 +19,8 @@ def get_parser():
     return parser
 
 
-def main():
-    args = get_parser().parse_args()
+def main(args):
+    args = get_parser().parse_args(args)
 
     source = args.infile.read()
     result = sort_string(source, args.sort_by)
@@ -32,8 +32,8 @@ def main():
     else:
         args.outfile.write(result)
 
-    sys.exit(0 if (source == result) else 1)
+    return 0 if (source == result) else 1
 
 
 if __name__ == '__main__':
-    main()
+    sys.exit(main(sys.argv[1:]))
