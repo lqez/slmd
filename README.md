@@ -46,10 +46,13 @@ $ slmd some.md
 - To file
 $ slmd src.md out.md
 
-- Sort the first depth by ascending order,
+- Sort case-insensitive
+$ slmd some.md -i
+
+- Sort the first depth by ascending order
 $ slmd some.md -s 1
 
-- Do not sort the first depth and sort the second depth by descending order,
+- Do not sort the first depth and sort the second depth by descending order
 $ slmd some.md -s 0 -1
 
 - Overwrite
