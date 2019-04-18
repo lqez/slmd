@@ -6,4 +6,4 @@
   - Next item
     - C
     - B
-    - A
+    - a

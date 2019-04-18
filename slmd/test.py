@@ -127,6 +127,32 @@ normal text
 """
         self.assertEqual(sort_string(asis, [0, 0, 1]), tobe)
 
+    def test_case_sensitive(self):
+        asis = """
+- C
+  - A
+  - d
+  - b
+- b
+  - Z
+  - 12
+  - a
+- a
+"""
+        tobe = """
+- a
+- b
+  - 12
+  - a
+  - Z
+- C
+  - A
+  - b
+  - d
+"""
+        self.assertEqual(sort_string(asis, case_sensitive=False), tobe)
+
+
 
 class TestCmd(unittest.TestCase):
     def setUp(self):
