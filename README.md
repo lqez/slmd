@@ -46,6 +46,9 @@ $ slmd some.md
 - Save the result as a file
 $ slmd src.md out.md
 
+- If you want to sort case-insensitively
+$ slmd some.md -i
+
 - If you want to sort only the first depth by ascending order,
 $ slmd some.md -s 1
 
