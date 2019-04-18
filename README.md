@@ -43,22 +43,19 @@ $ slmd <infile> [outfile] [-s ORDER_BY ...]
 - Simply
 $ slmd some.md
 
-- Save the result as a file
+- To file
 $ slmd src.md out.md
 
-- If you want to sort case-insensitively
-$ slmd some.md -i
-
-- If you want to sort only the first depth by ascending order,
+- Sort the first depth by ascending order,
 $ slmd some.md -s 1
 
-- If you want to sort only the second depth by descending order,
+- Do not sort the first depth and sort the second depth by descending order,
 $ slmd some.md -s 0 -1
 
-- Sort lists inplace(overwrite)
+- Overwrite
 $ slmd somd.md -o
 
-- Do you need help?
+- Help?
 $ slmd -h
 ```
 
@@ -83,5 +80,7 @@ result = sort_string(some_markdown_string)
 
 I made it for managing `awesome-blahblah` list. And you can use it when you want to check list items are ordered properly.
 
+
 ### License
-MIT
+
+MIT (See LICENSE file)
