@@ -55,6 +55,12 @@ $ slmd some.md -s 1
 - Do not sort the first depth and sort the second depth by descending order
 $ slmd some.md -s 0 -1
 
+- I'd like to shuffle the second depth only
+$ slmd some.md -s 0 2
+
+- Just shuffle all randomly
+$ slmd somd.md -r
+
 - Overwrite
 $ slmd somd.md -o
 

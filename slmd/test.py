@@ -152,6 +152,46 @@ normal text
 """
         self.assertEqual(sort_string(asis, case_sensitive=False), tobe)
 
+    def test_shuffle(self):
+        asis = """
+- A
+- B
+  - 12
+  - A
+  - Z
+- C
+  - A
+  - B
+  - D
+"""
+        self.assertNotEqual(sort_string(asis, sort_randomly=True), asis)
+
+    def test_shuffle_2nd_only(self):
+        asis = """
+* 1
+  * 1
+  * 2
+  * 3
+  * 4
+* 2
+* 3
+"""
+        not_to_be_2nd = """
+  * 1
+  * 2
+  * 3
+  * 4
+"""
+        original = asis.splitlines()
+        result = sort_string(asis, [0, 2]).splitlines()
+        only_2nd = "\n".join(result[2:6])
+
+        self.assertNotEqual(not_to_be_2nd, only_2nd)
+        
+        # Other lines should be equal
+        for l in [1, 6, 7]:
+            self.assertEqual(original[l], result[l])
+
 
 
 class TestCmd(unittest.TestCase):
