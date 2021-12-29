@@ -17,6 +17,8 @@ def get_parser():
                         help='Sort case-insensitive')
     parser.add_argument('-s', type=int, dest='sort_by', nargs='*',
                         help='Set order by depth (1:ASC / -1:DESC / 0:Do not sort)')
+    parser.add_argument('-r', dest='random', action='store_true', default=False,
+                        help='Sort randomly')
 
     return parser
 
@@ -25,7 +27,7 @@ def main(args=sys.argv[1:]):
     args = get_parser().parse_args(args)
 
     source = args.infile.read()
-    result = sort_string(source, args.sort_by, args.casesensitive)
+    result = sort_string(source, args.sort_by, args.casesensitive, args.random)
 
     if args.overwrite:
         args.infile.close()

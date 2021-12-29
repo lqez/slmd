@@ -15,32 +15,36 @@ try:
 except ImportError:
     from io import StringIO
 from collections import defaultdict
+import random
 
 TAB_SIZE = 4
 LIST_MARKERS = ('* ', '- ', '+ ')
 
 
-def sort_bucket(bucket, sort_by=None, depth=0, case_sensitive=True):
+def sort_bucket(bucket, sort_by=None, depth=0, case_sensitive=True, sort_randomly=False):
     order = 1
 
-    key = lambda s: s
-    if not case_sensitive:
-        key = lambda s: (s[0].lower(), s[1])
+    if sort_randomly:
+        random.shuffle(bucket)
+    else:
+        key = lambda s: s
+        if not case_sensitive:
+            key = lambda s: (s[0].lower(), s[1])
 
-    if sort_by:
-        try:
-            order = sort_by[depth]
-        except IndexError:
-            order = 0
+        if sort_by:
+            try:
+                order = sort_by[depth]
+            except IndexError:
+                order = 0
 
-    if order == 1:
-        bucket.sort(key=key)
-    elif order == -1:
-        bucket.sort(reverse=True, key=key)
+        if order == 1:
+            bucket.sort(key=key)
+        elif order == -1:
+            bucket.sort(reverse=True, key=key)
 
     for item, child in bucket:
         if child:
-            sort_bucket(child, sort_by, depth + 1, case_sensitive)
+            sort_bucket(child, sort_by, depth + 1, case_sensitive, sort_randomly)
 
 
 def bake_bucket(output, bucket, depth=0):
@@ -50,7 +54,7 @@ def bake_bucket(output, bucket, depth=0):
             bake_bucket(output, child, depth + 1)
 
 
-def sort(stream, output, sort_by=None, case_sensitive=True):
+def sort(stream, output, sort_by=None, case_sensitive=True, sort_randomly=False):
     buckets = defaultdict(list)
     tab_positions = []
     last_depth = depth = 0
@@ -89,7 +93,7 @@ def sort(stream, output, sort_by=None, case_sensitive=True):
             buckets[depth - 1].append((line, buckets[depth]))
         else:
             if buckets:
-                sort_bucket(buckets[0], sort_by, 0, case_sensitive)
+                sort_bucket(buckets[0], sort_by, 0, case_sensitive, sort_randomly)
                 bake_bucket(output, buckets[0])
                 buckets.clear()
                 del tab_positions[:]
@@ -97,12 +101,12 @@ def sort(stream, output, sort_by=None, case_sensitive=True):
 
     # for remains
     if buckets:
-        sort_bucket(buckets[0], sort_by, 0, case_sensitive)
+        sort_bucket(buckets[0], sort_by, 0, case_sensitive, sort_randomly)
         bake_bucket(output, buckets[0])
 
 
-def sort_string(string, sort_by=None, case_sensitive=True):
+def sort_string(string, sort_by=None, case_sensitive=True, sort_randomly=False):
     stream = StringIO(string)
     output = StringIO()
-    sort(stream, output, sort_by, case_sensitive)
+    sort(stream, output, sort_by, case_sensitive, sort_randomly)
     return output.getvalue()

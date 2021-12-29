@@ -152,6 +152,20 @@ normal text
 """
         self.assertEqual(sort_string(asis, case_sensitive=False), tobe)
 
+    def test_case_randomly(self):
+        asis = """
+- A
+- B
+  - 12
+  - A
+  - Z
+- C
+  - A
+  - B
+  - D
+"""
+        self.assertNotEqual(sort_string(asis, sort_randomly=True), asis)
+
 
 
 class TestCmd(unittest.TestCase):
