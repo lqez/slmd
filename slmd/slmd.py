@@ -41,6 +41,8 @@ def sort_bucket(bucket, sort_by=None, depth=0, case_sensitive=True, sort_randoml
             bucket.sort(key=key)
         elif order == -1:
             bucket.sort(reverse=True, key=key)
+        elif order == 2:
+            random.shuffle(bucket)
 
     for item, child in bucket:
         if child:

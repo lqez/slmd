@@ -16,9 +16,9 @@ def get_parser():
     parser.add_argument('-i', dest='casesensitive', action='store_false', default=True,
                         help='Sort case-insensitive')
     parser.add_argument('-s', type=int, dest='sort_by', nargs='*',
-                        help='Set order by depth (1:ASC / -1:DESC / 0:Do not sort)')
+                        help='Set order by depth (1:ASC / -1:DESC / 2:Shuffle / 0:Do not sort)')
     parser.add_argument('-r', dest='random', action='store_true', default=False,
-                        help='Sort randomly')
+                        help='Sort all lists randomly')
 
     return parser
 
